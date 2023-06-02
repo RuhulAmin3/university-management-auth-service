@@ -3,8 +3,8 @@ import { createUserToDb } from './users.service'
 
 export const createUserController = async (req: Request, res: Response) => {
   try {
-    const { user } = req.body;
-    const createdUser = await createUserToDb(user);
+    const { user } = req.body
+    const createdUser = await createUserToDb(user)
     res.status(200).json({
       success: true,
       message: 'user created successfully',
