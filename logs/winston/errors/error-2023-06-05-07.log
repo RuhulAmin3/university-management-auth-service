@@ -1,0 +1,14 @@
+{
+  message: 'failed to connect database',
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-05T01:05:08.963Z'
+}
+{
+  message: 'failed to connect database',
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-05T01:43:25.181Z'
+}
