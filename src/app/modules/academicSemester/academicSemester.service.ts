@@ -75,7 +75,7 @@ export const getAllSemestersService = async (
       $or: academicSemesterSearchableFields.map(field => ({
         [field]: {
           $regex: searchTerm,
-          $options: 'i', // i = case insensitive
+          $options: 'i', // i means case insensitive
         },
       })),
     });
@@ -117,7 +117,7 @@ export const getSingleSemesterService = async (
 export const updateSemesterService = async (
   id: string,
   payload: Partial<IAcademicSemester>
-) => {
+): Promise<IAcademicSemester | null> => {
   if (
     payload.title &&
     payload.code &&
