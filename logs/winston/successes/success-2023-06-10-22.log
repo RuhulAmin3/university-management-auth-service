@@ -1,0 +1,126 @@
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:01:24.228Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:01:24.266Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:03:41.241Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:03:41.271Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:09:50.832Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:09:50.899Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:11:06.181Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:11:06.248Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:13:20.015Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:13:20.058Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:16:18.577Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:16:18.624Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:19:21.111Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:19:21.198Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:19:47.803Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:19:47.891Z'
+}
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:22:28.936Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-10T16:22:28.976Z'
+}

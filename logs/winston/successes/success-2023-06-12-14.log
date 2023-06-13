@@ -1,0 +1,14 @@
+{
+  message: 'database connected successfully',
+  level: 'info',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-12T08:54:06.453Z'
+}
+{
+  service: 'user-service',
+  level: 'info',
+  message: 'server running on port',
+  label: 'UMW',
+  timestamp: '2023-06-12T08:54:06.567Z'
+}

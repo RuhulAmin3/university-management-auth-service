@@ -9,6 +9,7 @@ import ApiError from '../../errors/ApiError';
 import { errorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import { handleZodError } from '../../errors/handleZodError';
+import { handleCastError } from '../../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   config.env === 'development'
@@ -18,7 +19,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let statusCode = 500;
   let message = 'something went wrong';
   let errorMessages: IGenericErrMessage[] = [];
-
+  console.log(err);
   if (err?.name === 'ValidationError') {
     // validation Error handler
     const simplifiedError = handleValidationError(err);
@@ -27,6 +28,11 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     errorMessages = simplifiedError.errorMessages;
   } else if (err instanceof ZodError) {
     const simplifiedError = handleZodError(err);
+    statusCode = simplifiedError.statusCode;
+    message = simplifiedError.message;
+    errorMessages = simplifiedError.errorMessages;
+  } else if (err?.name === 'CastError') {
+    const simplifiedError = handleCastError(err);
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
     errorMessages = simplifiedError.errorMessages;
@@ -39,7 +45,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     errorMessages = err?.message ? [{ path: '', message: err?.message }] : [];
   }
 
-  //   generic error format send for frontend;
+  // generic error format send for frontend;
   res.status(statusCode).json({
     success: false,
     message,
