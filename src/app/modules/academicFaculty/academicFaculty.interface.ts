@@ -4,4 +4,4 @@ export type IAcademicFaculty = {
   title: string;
 };
 
-export const IAcademicFacultyModel = Model<IAcademicFaculty>;
+export type AcademicFacultyModel = Model<IAcademicFaculty>;
