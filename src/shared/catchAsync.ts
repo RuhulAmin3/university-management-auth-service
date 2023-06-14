@@ -1,6 +1,6 @@
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 
-const catchAsnyc = (fn: RequestHandler) => {
+const catchAsync = (fn: RequestHandler) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       await fn(req, res, next);
@@ -10,4 +10,4 @@ const catchAsnyc = (fn: RequestHandler) => {
   };
 };
 
-export default catchAsnyc;
+export default catchAsync;

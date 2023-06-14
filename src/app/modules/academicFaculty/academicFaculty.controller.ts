@@ -14,13 +14,14 @@ import {
   academicFacultyFilterAbleFields,
   paginationFields,
 } from './academicFaculty.constant';
+import { IAcademicFaculty } from './academicFaculty.interface';
 
 export const createFacultyController = catchAsync(
   async (req: Request, res: Response) => {
     const createData = req.body;
     const result = await createFacultyService(createData);
 
-    sendResponse(res, {
+    sendResponse<IAcademicFaculty>(res, {
       success: true,
       message: 'academic faculty created successfully',
       data: result,
@@ -34,7 +35,7 @@ export const getAllFacultiesController = catchAsync(
     const filters = pick(req.query, academicFacultyFilterAbleFields);
     const paginationOptions = pick(req.query, paginationFields);
     const result = await getAllFacultiesService(filters, paginationOptions);
-    sendResponse(res, {
+    sendResponse<IAcademicFaculty[]>(res, {
       success: true,
       message: 'academic facultices retrieved successfully',
       data: result.data,
@@ -48,7 +49,7 @@ export const getSingleFacultyController = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
     const result = await getSingleFacultyService(id);
-    sendResponse(res, {
+    sendResponse<IAcademicFaculty>(res, {
       success: true,
       message: 'academic faculty retrieved successfully',
       data: result,
@@ -62,7 +63,7 @@ export const updateFacultyController = catchAsync(
     const { id } = req.params;
     const data = req.body;
     const result = await updateFacultyService(id, data);
-    sendResponse(res, {
+    sendResponse<IAcademicFaculty>(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: 'faculty updated successfully',
@@ -75,7 +76,7 @@ export const deleteFacultyController = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
     const result = await deleteFacultyService(id);
-    sendResponse(res, {
+    sendResponse<IAcademicFaculty>(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: 'faculty deleted successfully',

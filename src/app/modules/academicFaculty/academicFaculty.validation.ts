@@ -10,6 +10,8 @@ export const academicFacultyZodSchema = z.object({
 
 export const updateAcademicFacultyZodSchema = z.object({
   body: z.object({
-    title: z.string().optional(),
+    title: z.string({
+      required_error: 'title is required',
+    }),
   }),
 });

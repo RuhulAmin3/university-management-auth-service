@@ -1,0 +1,7 @@
+{
+  message: 'failed to connect database',
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-13T06:46:34.695Z'
+}

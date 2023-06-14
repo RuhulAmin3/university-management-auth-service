@@ -12,13 +12,14 @@ import { sendResponse } from '../../../shared/sendResponse';
 import { pick } from '../../../shared/pick';
 import { paginationFields } from '../../../constant/paginationOptions';
 import { academicSemesterFilterableFields } from './academicSemester.constant';
+import { IAcademicSemester } from './academicSemester.interface';
 
 export const createAcademicSemesterController = catchAsync(
   async (req: Request, res: Response) => {
     const { ...academicSemesterData } = req.body;
     const createdSemester = await createAcademicSemester(academicSemesterData);
 
-    sendResponse(res, {
+    sendResponse<IAcademicSemester>(res, {
       success: true,
       message: 'academic semester created successfully',
       data: createdSemester,
@@ -33,7 +34,7 @@ export const getAllSemestersController = catchAsync(
     const paginationOptions = pick(req.query, paginationFields);
 
     const result = await getAllSemestersService(filters, paginationOptions);
-    sendResponse(res, {
+    sendResponse<IAcademicSemester[]>(res, {
       success: true,
       message: 'academic semesters retrieved successfully',
       meta: result.meta,
@@ -48,7 +49,7 @@ export const getSingleSemesterController = catchAsync(
     const { id } = req.params;
     const result = await getSingleSemesterService(id);
 
-    sendResponse(res, {
+    sendResponse<IAcademicSemester>(res, {
       success: true,
       message: 'academic semester retrieved successfully',
       data: result,
@@ -62,7 +63,7 @@ export const updateSemesterController = catchAsync(
     const { id } = req.params;
     const updateData = req.body;
     const result = await updateSemesterService(id, updateData);
-    sendResponse(res, {
+    sendResponse<IAcademicSemester>(res, {
       success: true,
       message: 'academic semester update successful',
       data: result,
@@ -75,7 +76,7 @@ export const deleteSemesterController = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
     const result = await deleteSemesterService(id);
-    sendResponse(res, {
+    sendResponse<IAcademicSemester>(res, {
       success: true,
       message: 'academic semester delete successful',
       data: result,
