@@ -23,7 +23,7 @@ const academicFacultySchema = new Schema<IAcademicFaculty>(
 );
 
 academicFacultySchema.pre('save', async function (next) {
-  const isExit = await academicFacultyModal.findOne({ title: this.title });
+  const isExit = await AcademicFaculty.findOne({ title: this.title });
   if (isExit) {
     throw new ApiError(
       httpStatus.CONFLICT,
@@ -33,7 +33,7 @@ academicFacultySchema.pre('save', async function (next) {
   next();
 });
 
-export const academicFacultyModal = model<
-  IAcademicFaculty,
-  AcademicFacultyModel
->('academicFaculty', academicFacultySchema);
+export const AcademicFaculty = model<IAcademicFaculty, AcademicFacultyModel>(
+  'academicFaculty',
+  academicFacultySchema
+);

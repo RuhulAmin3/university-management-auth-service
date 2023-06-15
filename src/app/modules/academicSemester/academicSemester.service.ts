@@ -12,6 +12,7 @@ import { AcademicSemester } from './academicSemester.model';
 import { IpaginationOptions } from '../../../interfaces/pagination';
 import { calculatePagination } from '../../../helper/paginationHelper';
 import { SortOrder } from 'mongoose';
+import { IGenericResponse } from '../../../interfaces/common';
 
 export const createAcademicSemester = async (
   payload: IAcademicSemester
@@ -21,15 +22,6 @@ export const createAcademicSemester = async (
   }
   const result = await AcademicSemester.create(payload);
   return result;
-};
-
-type IGenericResponse<T> = {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-  };
-  data: T;
 };
 
 export const getAllSemestersService = async (
@@ -45,31 +37,6 @@ export const getAllSemestersService = async (
   }
 
   const andCondition = [];
-  // const andCondition = [
-  //   {
-  //     $or: [
-  //       {
-  //         title: {
-  //           $regex: searchTerm, // $regex operator use for partial match
-  //           $options: 'i',
-  //         },
-  //       },
-  //       {
-  //         code: {
-  //           $regex: searchTerm,
-  //           $options: 'i',
-  //         },
-  //       },
-  //       {
-  //         year: {
-  //           $regex: searchTerm,
-  //           $options: 'i',
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ];
-
   if (searchTerm) {
     andCondition.push({
       $or: academicSemesterSearchableFields.map(field => ({
@@ -96,7 +63,7 @@ export const getAllSemestersService = async (
     .skip(skip)
     .limit(limit);
 
-  const total = await AcademicSemester.countDocuments();
+  const total = await AcademicSemester.countDocuments(whereCondition);
   return {
     meta: {
       page,

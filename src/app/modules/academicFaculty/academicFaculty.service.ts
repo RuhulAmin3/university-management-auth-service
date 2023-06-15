@@ -5,22 +5,14 @@ import {
   IAcademicFaculty,
   IAcademicFacultyFilters,
 } from './academicFaculty.interface';
-import { academicFacultyModal } from './academicFaculty.model';
+import { AcademicFaculty } from './academicFaculty.model';
 import { academicFacultySearchAbleFields } from './academicFaculty.constant';
-
-type IGenericResponse<T> = {
-  meta?: {
-    page: number;
-    limit: number;
-    total: number;
-  };
-  data: T;
-};
+import { IGenericResponse } from '../../../interfaces/common';
 
 export const createFacultyService = async (
   data: IAcademicFaculty
 ): Promise<IAcademicFaculty> => {
-  const result = await academicFacultyModal.create(data);
+  const result = await AcademicFaculty.create(data);
   return result;
 };
 
@@ -58,9 +50,8 @@ export const getAllFacultiesService = async (
 
   const whereCondition =
     andConditions.length > 0 ? { $and: andConditions } : {};
-  const total = await academicFacultyModal.countDocuments();
-  const result = await academicFacultyModal
-    .find(whereCondition)
+  const total = await AcademicFaculty.countDocuments(whereCondition);
+  const result = await AcademicFaculty.find(whereCondition)
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -78,7 +69,7 @@ export const getAllFacultiesService = async (
 export const getSingleFacultyService = async (
   id: string
 ): Promise<IAcademicFaculty | null> => {
-  const result = await academicFacultyModal.findById(id);
+  const result = await AcademicFaculty.findById(id);
   return result;
 };
 
@@ -86,19 +77,15 @@ export const updateFacultyService = async (
   id: string,
   data: Partial<IAcademicFaculty>
 ) => {
-  const result = await academicFacultyModal.findOneAndUpdate(
-    { _id: id },
-    data,
-    {
-      new: true,
-    }
-  );
+  const result = await AcademicFaculty.findOneAndUpdate({ _id: id }, data, {
+    new: true,
+  });
   return result;
 };
 
 export const deleteFacultyService = async (
   id: string
 ): Promise<IAcademicFaculty | null> => {
-  const result = await academicFacultyModal.findByIdAndDelete(id);
+  const result = await AcademicFaculty.findByIdAndDelete(id);
   return result;
 };

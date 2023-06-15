@@ -6,24 +6,16 @@ import {
   IAcademicDepartment,
   IAcademicDepartmentFilters,
 } from './academicDepartment.interface';
-import { academicDepartmentModel } from './academicDepartment.model';
+import { AcademicDepartment } from './academicDepartment.model';
+import { IGenericResponse } from '../../../interfaces/common';
 
 export const createDepartmentService = async (
   data: IAcademicDepartment
 ): Promise<IAcademicDepartment | null> => {
-  const result = (await academicDepartmentModel.create(data)).populate(
+  const result = (await AcademicDepartment.create(data)).populate(
     'academicFaculty'
   );
   return result;
-};
-
-type IGenericResponse<T> = {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-  };
-  data: T;
 };
 
 export const getAllDepartmentService = async (
@@ -57,9 +49,8 @@ export const getAllDepartmentService = async (
   }
   const whereCondition =
     andConditions.length > 0 ? { $and: andConditions } : {};
-  const total = await academicDepartmentModel.countDocuments();
-  const result = await academicDepartmentModel
-    .find(whereCondition)
+  const total = await AcademicDepartment.countDocuments(whereCondition);
+  const result = await AcademicDepartment.find(whereCondition)
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -77,9 +68,9 @@ export const getAllDepartmentService = async (
 export const getSingleDepartmentService = async (
   id: string
 ): Promise<IAcademicDepartment | null> => {
-  const result = await academicDepartmentModel
-    .findById(id)
-    .populate('academicFaculty');
+  const result = await AcademicDepartment.findById(id).populate(
+    'academicFaculty'
+  );
 
   return result;
 };
@@ -88,17 +79,19 @@ export const updateDepartmentService = async (
   id: string,
   payload: IAcademicDepartment
 ): Promise<IAcademicDepartment | null> => {
-  const result = await academicDepartmentModel
-    .findOneAndUpdate({ _id: id }, payload, { new: true })
-    .populate('academicFaculty');
+  const result = await AcademicDepartment.findOneAndUpdate(
+    { _id: id },
+    payload,
+    { new: true }
+  ).populate('academicFaculty');
   return result;
 };
 
 export const deleteDepartmentService = async (
   id: string
 ): Promise<IAcademicDepartment | null> => {
-  const result = await academicDepartmentModel
-    .findByIdAndDelete(id)
-    .populate('academicFaculty');
+  const result = await AcademicDepartment.findByIdAndDelete(id).populate(
+    'academicFaculty'
+  );
   return result;
 };
