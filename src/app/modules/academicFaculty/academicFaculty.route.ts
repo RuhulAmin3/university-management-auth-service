@@ -1,10 +1,10 @@
 import express from 'express';
 import {
-  createFacultyController,
-  getAllFacultiesController,
-  getSingleFacultyController,
-  updateFacultyController,
-  deleteFacultyController,
+  createAcademicFacultyController,
+  getAllAcademicFacultiesController,
+  getSingleAcademicFacultyController,
+  updateFacultyFacultyController,
+  deleteAcademicFacultyController,
 } from './academicFaculty.controller';
 import { validationRequest } from '../../middlewares/validationRequest';
 import {
@@ -16,15 +16,15 @@ const router = express.Router();
 router.post(
   '/create-faculty',
   validationRequest(academicFacultyZodSchema),
-  createFacultyController
+  createAcademicFacultyController
 );
-router.get('/:id', getSingleFacultyController);
+router.get('/:id', getSingleAcademicFacultyController);
 router.patch(
   '/:id',
   validationRequest(updateAcademicFacultyZodSchema),
-  updateFacultyController
+  updateFacultyFacultyController
 );
-router.delete('/:id', deleteFacultyController);
-router.get('/', getAllFacultiesController);
+router.delete('/:id', deleteAcademicFacultyController);
+router.get('/', getAllAcademicFacultiesController);
 
 export default router;

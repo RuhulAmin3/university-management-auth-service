@@ -31,14 +31,14 @@ const academicDepartmentSchema = new Schema<
 );
 
 academicDepartmentSchema.pre('save', async function (next) {
-  const isExist = await academicDepartmentModel.findOne({ title: this.title });
+  const isExist = await AcademicDepartment.findOne({ title: this.title });
   if (isExist) {
     throw new ApiError(httpStatus.CONFLICT, 'same department already exist');
   }
   next();
 });
 
-export const academicDepartmentModel = model<
+export const AcademicDepartment = model<
   IAcademicDepartment,
   IAcademicDepartmentModal
->('acdemicDepartment', academicDepartmentSchema);
+>('academicDepartment', academicDepartmentSchema);

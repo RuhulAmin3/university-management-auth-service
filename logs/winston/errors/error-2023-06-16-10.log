@@ -1,0 +1,21 @@
+{
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-16T04:39:05.189Z',
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-16T04:40:19.443Z',
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-16T04:41:27.657Z',
+  [Symbol(errorLabels)]: Set(0) {}
+}
