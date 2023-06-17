@@ -41,4 +41,4 @@ academicDepartmentSchema.pre('save', async function (next) {
 export const AcademicDepartment = model<
   IAcademicDepartment,
   IAcademicDepartmentModal
->('acdemicDepartment', academicDepartmentSchema);
+>('academicDepartment', academicDepartmentSchema);

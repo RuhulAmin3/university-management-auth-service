@@ -9,14 +9,14 @@ import { AcademicFaculty } from './academicFaculty.model';
 import { academicFacultySearchAbleFields } from './academicFaculty.constant';
 import { IGenericResponse } from '../../../interfaces/common';
 
-export const createFacultyService = async (
+export const createAcademicFacultyService = async (
   data: IAcademicFaculty
 ): Promise<IAcademicFaculty> => {
   const result = await AcademicFaculty.create(data);
   return result;
 };
 
-export const getAllFacultiesService = async (
+export const getAllAcademicFacultiesService = async (
   filters: IAcademicFacultyFilters,
   paginationOptions: IpaginationOptions
 ): Promise<IGenericResponse<IAcademicFaculty[]>> => {
@@ -66,14 +66,14 @@ export const getAllFacultiesService = async (
   };
 };
 
-export const getSingleFacultyService = async (
+export const getSingleAcademicFacultyService = async (
   id: string
 ): Promise<IAcademicFaculty | null> => {
   const result = await AcademicFaculty.findById(id);
   return result;
 };
 
-export const updateFacultyService = async (
+export const updateAcademicFacultyService = async (
   id: string,
   data: Partial<IAcademicFaculty>
 ) => {
@@ -83,7 +83,7 @@ export const updateFacultyService = async (
   return result;
 };
 
-export const deleteFacultyService = async (
+export const deleteAcademicFacultyService = async (
   id: string
 ): Promise<IAcademicFaculty | null> => {
   const result = await AcademicFaculty.findByIdAndDelete(id);

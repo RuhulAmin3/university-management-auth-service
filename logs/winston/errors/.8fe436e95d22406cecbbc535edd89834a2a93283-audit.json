@@ -319,6 +319,36 @@
             "date": 1686841960761,
             "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-15-21.log",
             "hash": "e40527f9bc43d2f8f173983aabe382df93252ab1b2f922991ac3d35e3fc2edd9"
+        },
+        {
+            "date": 1686851515657,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-15-23.log",
+            "hash": "bfa97dcb117aa35a7ed1b6125ee1b9397685f961cb4b70df0eef3506911fa54d"
+        },
+        {
+            "date": 1686852007043,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-16-00.log",
+            "hash": "2998d8f860889ca987cd2d5fbe9138f2174dd028878108967c2e324d04c874a4"
+        },
+        {
+            "date": 1686855613875,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-16-01.log",
+            "hash": "f723c42d46e62edc2f6a1c13d29dc29d38e4430ce68fcdb4cf106d5c0a92a1d4"
+        },
+        {
+            "date": 1686889867396,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-16-10.log",
+            "hash": "dc1a7884d4950283b60927908318d0e87e3c39a45d83086e5fbdb115f6971edb"
+        },
+        {
+            "date": 1686907033804,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-16-15.log",
+            "hash": "aced2ed6cfa375da839e019c93534e91e658fc409142a563f700517b613a7233"
+        },
+        {
+            "date": 1686924340584,
+            "name": "F:\\Batch - 6\\next-Level-web-development (level-2)\\university-management-auth-service-backend\\logs\\winston\\errors\\error-2023-06-16-20.log",
+            "hash": "6d72d9ecb2720144926b5d3df775d08a7f3c269b2deb35575ab063ed10afa452"
         }
     ],
     "hashType": "sha256"

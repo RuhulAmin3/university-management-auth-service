@@ -1,13 +1,25 @@
 import express from 'express';
-import { createStudentController } from './user.controller';
+import {
+  createStudentController,
+  createFacultyController,
+} from './user.controller';
 import { validationRequest } from '../../middlewares/validationRequest';
-import { createUserZodSchema } from './user.validation';
+import {
+  createStudentZodSchema,
+  createFacultyZodSchema,
+} from './user.validation';
 const router = express.Router();
 
 router.post(
   '/create-student',
-  validationRequest(createUserZodSchema),
+  validationRequest(createStudentZodSchema),
   createStudentController
+);
+
+router.post(
+  '/create-faculty',
+  validationRequest(createFacultyZodSchema),
+  createFacultyController
 );
 
 export default router;
