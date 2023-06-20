@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 import catchAsync from '../../../shared/catchAsync';
-import { createStudentService, createFacultyService } from './user.service';
+import {
+  createStudentService,
+  createFacultyService,
+  createAdminService,
+} from './user.service';
 import { sendResponse } from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 import { IUser } from './user.interface';
@@ -29,6 +33,20 @@ export const createFacultyController = catchAsync(
       statusCode: httpStatus.OK,
       message: 'faculty user created successfully',
       data: createdFaculty,
+    });
+  }
+);
+
+export const createAdminController = catchAsync(
+  async (req: Request, res: Response) => {
+    const { admin, ...userData } = req.body;
+    const createdAdmin = await createAdminService(admin, userData);
+
+    sendResponse<IUser>(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: 'admin user created successfully',
+      data: createdAdmin,
     });
   }
 );

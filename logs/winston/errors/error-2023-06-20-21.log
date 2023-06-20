@@ -1,0 +1,50 @@
+{
+  ok: 0,
+  code: 251,
+  codeName: 'NoSuchTransaction',
+  '$clusterTime': {
+    clusterTime: new Timestamp({ t: 1687276160, i: 13 }),
+    signature: {
+      hash: Binary.createFromBase64("NSyTLtvEKYRba4fg0DH2SomxxtQ=", 0),
+      keyId: new Long("7207428896235454471")
+    }
+  },
+  operationTime: new Timestamp({ t: 1687276160, i: 13 }),
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-20T15:46:03.924Z',
+  [Symbol(errorLabels)]: Set(1) { 'TransientTransactionError' }
+}
+{
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-20T15:50:34.023Z',
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  ok: 0,
+  code: 251,
+  codeName: 'NoSuchTransaction',
+  '$clusterTime': {
+    clusterTime: new Timestamp({ t: 1687276644, i: 3 }),
+    signature: {
+      hash: Binary.createFromBase64("QH8UzYfN3f9J2NbHEkpoCO13vVI=", 0),
+      keyId: new Long("7207428896235454471")
+    }
+  },
+  operationTime: new Timestamp({ t: 1687276644, i: 3 }),
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-20T15:54:07.474Z',
+  [Symbol(errorLabels)]: Set(1) { 'TransientTransactionError' }
+}
+{
+  message: 'failed to connect database',
+  level: 'error',
+  service: 'user-service',
+  label: 'UMW',
+  timestamp: '2023-06-20T15:59:03.513Z'
+}

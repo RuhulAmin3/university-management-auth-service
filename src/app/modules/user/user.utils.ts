@@ -15,9 +15,11 @@ export const generateStudentId = async (
 ): Promise<string> => {
   const currentId = (await lastStudentId()) || (0).toString().padStart(5, '0');
   let incrementId = (parseInt(currentId) + 1).toString().padStart(5, '0');
-  incrementId = `${academicSemester.year.substring(2)}${
-    academicSemester.code
-  }${incrementId}`;
+  if (academicSemester) {
+    incrementId = `${academicSemester.year.substring(2)}${
+      academicSemester.code
+    }${incrementId}`;
+  }
   return incrementId;
 };
 
@@ -34,5 +36,21 @@ export const generateFacultyId = async (): Promise<string> => {
   const currentId = (await lastFacultyId()) || (0).toString().padStart(5, '0');
   let incrementId = (parseInt(currentId) + 1).toString().padStart(5, '0');
   incrementId = `F-${incrementId}`;
+  return incrementId;
+};
+
+const lastAdminId = async (): Promise<string | undefined> => {
+  const lastAdmin = await User.findOne({ role: 'admin' }, { id: 1, _id: 0 })
+    .sort({
+      createdAt: -1,
+    })
+    .lean();
+  return lastAdmin?.id ? lastAdmin?.id.substring(2) : undefined;
+};
+
+export const generateAdminId = async (): Promise<string> => {
+  const currentId = (await lastAdminId()) || (0).toString().padStart(5, '0');
+  let incrementId = (Number(currentId) + 1).toString().padStart(5, '0');
+  incrementId = `A-${incrementId}`;
   return incrementId;
 };
