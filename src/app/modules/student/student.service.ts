@@ -8,6 +8,8 @@ import { Student } from './student.model';
 import { IGenericResponse } from '../../../interfaces/common';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
+import mongoose from 'mongoose';
+import { User } from '../user/user.model';
 
 export const getAllStudentsService = async (
   filters: IStudentFilters,
@@ -112,9 +114,25 @@ export const updateStudentService = async (
 export const deleteStudentService = async (
   id: string
 ): Promise<IStudent | null> => {
-  const result = await Student.findByIdAndDelete(id)
-    .populate('academicFaculty')
-    .populate('academicDepartment')
-    .populate('academicSemester');
-  return result;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+    const isExist = await Student.findOne({ id });
+    if (!isExist) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'student not found');
+    }
+    const result = await Student.findOneAndDelete({ id }, { session })
+      .populate('academicFaculty')
+      .populate('academicDepartment')
+      .populate('academicSemester');
+
+    await User.findOneAndDelete({ id }, { session });
+    session.commitTransaction();
+    session.endSession();
+    return result;
+  } catch (err) {
+    session.abortTransaction();
+    session.endSession();
+    throw err;
+  }
 };

@@ -139,6 +139,7 @@ export const createFacultyZodSchema = z.object({
     }),
   }),
 });
+
 export const createAdminZodSchema = z.object({
   body: z.object({
     password: z.string().optional(),

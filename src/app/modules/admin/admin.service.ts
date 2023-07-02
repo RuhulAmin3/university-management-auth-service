@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SortOrder } from 'mongoose';
+import mongoose, { SortOrder } from 'mongoose';
 import { calculatePagination } from '../../../helper/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IpaginationOptions } from '../../../interfaces/pagination';
@@ -8,6 +8,7 @@ import { adminSearchableFields } from './admin.constant';
 import { Admin } from './admin.model';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
+import { User } from '../user/user.model';
 
 export const getAllAdminService = async (
   filters: IAdminFilters,
@@ -94,6 +95,28 @@ export const updateAdminService = async (
 export const deleteAdminService = async (
   id: string
 ): Promise<IAdmin | null> => {
-  const result = await Admin.findByIdAndDelete(id).populate('department');
-  return result;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+    const isExist = await Admin.findOne({ id });
+    if (!isExist) {
+      throw new ApiError(httpStatus.NOT_FOUND, 'admin not found');
+    }
+    const result = await Admin.findOneAndDelete({ id }, { session }).populate({
+      path: 'department',
+      populate: [
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+    await User.findOneAndDelete({ id }, { session });
+    session.commitTransaction();
+    session.endSession();
+    return result;
+  } catch (err) {
+    session.abortTransaction();
+    session.endSession();
+    throw err;
+  }
 };

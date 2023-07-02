@@ -13,7 +13,6 @@ export const createStudentController = catchAsync(
   async (req: Request, res: Response) => {
     const { student, ...userData } = req.body;
     const createdStudent = await createStudentService(student, userData);
-
     sendResponse<IUser>(res, {
       success: true,
       statusCode: httpStatus.OK,
@@ -26,8 +25,8 @@ export const createStudentController = catchAsync(
 export const createFacultyController = catchAsync(
   async (req: Request, res: Response) => {
     const { faculty, ...userData } = req.body;
+    console.log("cookie:", req.cookies);
     const createdFaculty = await createFacultyService(faculty, userData);
-
     sendResponse<IUser>(res, {
       success: true,
       statusCode: httpStatus.OK,

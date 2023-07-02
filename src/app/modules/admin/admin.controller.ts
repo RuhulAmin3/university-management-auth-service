@@ -28,6 +28,7 @@ export const getAllAdminController = catchAsync(
     });
   }
 );
+
 export const getSingleAdminController = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;

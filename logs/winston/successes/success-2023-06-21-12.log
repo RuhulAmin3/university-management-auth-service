@@ -3,82 +3,82 @@
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:01:06.944Z'
+  timestamp: '2023-06-21T06:00:37.349Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:01:06.983Z'
+  timestamp: '2023-06-21T06:00:37.516Z'
 }
 {
   message: 'database connected successfully',
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:02:08.738Z'
+  timestamp: '2023-06-21T06:01:00.246Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:02:08.878Z'
+  timestamp: '2023-06-21T06:01:00.287Z'
 }
 {
   message: 'database connected successfully',
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:02:18.255Z'
+  timestamp: '2023-06-21T06:38:44.414Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:02:18.311Z'
+  timestamp: '2023-06-21T06:38:44.453Z'
 }
 {
   message: 'database connected successfully',
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:07:13.812Z'
+  timestamp: '2023-06-21T06:41:06.936Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:07:13.859Z'
+  timestamp: '2023-06-21T06:41:06.979Z'
 }
 {
   message: 'database connected successfully',
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:07:49.468Z'
+  timestamp: '2023-06-21T06:41:35.582Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:07:49.542Z'
+  timestamp: '2023-06-21T06:41:35.623Z'
 }
 {
   message: 'database connected successfully',
   level: 'info',
   service: 'user-service',
   label: 'UMW',
-  timestamp: '2023-06-20T17:09:21.767Z'
+  timestamp: '2023-06-21T06:42:33.213Z'
 }
 {
   service: 'user-service',
   level: 'info',
   message: 'server running on port',
   label: 'UMW',
-  timestamp: '2023-06-20T17:09:21.856Z'
+  timestamp: '2023-06-21T06:42:33.316Z'
 }

@@ -123,7 +123,7 @@ const studentSchema = new Schema<IStudent, StudentModel>(
     },
     academicDepartment: {
       type: Schema.Types.ObjectId,
-      ref: 'acdemicDepartment',
+      ref: 'academicDepartment',
       required: true,
     },
     academicSemester: {
